@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+    lego_cdn:
+        build: .
+        restart: always
+        env_file:
+            - cdn.env
+        volumes:
+           - type: bind
+             source: ./data
+             target: /aliyun/.lego/
+        entrypoint: /bin/sh ./start.sh
+
